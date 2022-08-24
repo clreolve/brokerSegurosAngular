@@ -1,0 +1,26 @@
+<div class="login-page">
+    
+    <div class="form">
+        <div class="logo">
+            Logotipo BrokerSeguros
+        </div>
+      <form class="register-form">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <input type="text" placeholder="Usuario"/>
+        <input type="password" placeholder="Contraseña"/>
+        <button routerLink="/principal">login</button>
+        <p class="message">No registrado? <a href="#">Crear cuenta</a></p>
+      </form>
+    </div>
+  </div>
+  <script>
+        $('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+  </script>

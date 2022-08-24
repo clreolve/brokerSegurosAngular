@@ -1,0 +1,60 @@
+<nav>
+    <div class="position-sticky pt-3">
+        <ul class="nav flex-column d-grid gap-2 mx-auto">
+            <li class="nav-item">
+                <div class="card">
+                    <img src="../../assets/images/profile.png" class="card-img-top" alt="foto usuario"
+                        id="foto_user">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Rol de usuario</li>
+                        <li class="list-group-item">Nombre Usuario</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown nav-item">
+                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Módulos
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Emisiones</a></li>
+                        <li><a class="dropdown-item" href="#">Renovaciones</a></li>
+                        <li><a class="dropdown-item" href="#">Reembolsos</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary" routerLink="/plan">
+                    <span data-feather="file"></span>
+                    Planes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary" routerLink="/cliente">
+                    <span data-feather="shopping-cart"></span>
+                    Clientes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary" href="#">
+                    <span data-feather="users"></span>
+                    Agentes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary" routerLink="/compania">
+                    <span data-feather="bar-chart-2"></span>
+                    Compañias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary" href="#">
+                    <span data-feather="layers"></span>
+                    Dashboard
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
