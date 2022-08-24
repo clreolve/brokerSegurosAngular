@@ -18,7 +18,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import { AgenteComponent } from './vistas/agente/agente.component';
 
 @NgModule({
@@ -43,8 +42,7 @@ import { AgenteComponent } from './vistas/agente/agente.component';
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatInputModule,
-    FlexLayoutModule
+    MatInputModule
   ],
   exports:[
     HttpClientModule,
@@ -53,8 +51,7 @@ import { AgenteComponent } from './vistas/agente/agente.component';
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatInputModule,
-    FlexLayoutModule
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
