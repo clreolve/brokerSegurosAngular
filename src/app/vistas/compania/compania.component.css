@@ -5,6 +5,15 @@ table {
 
 .mat-form-field {
     width: 100%; 
+    color: white;
   }
+
+.ng-star-inserted{
+    background: #424242;
+}
+
+h2{
+    color: white;
+}
 
   

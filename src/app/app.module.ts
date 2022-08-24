@@ -18,6 +18,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { AgenteComponent } from './vistas/agente/agente.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {MatInputModule} from '@angular/material/input';
     HeaderComponent,
     SidebarmenuComponent,
     ClienteComponent,
-    PlanComponent
+    PlanComponent,
+    AgenteComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {MatInputModule} from '@angular/material/input';
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    FlexLayoutModule
   ],
   exports:[
     HttpClientModule,
@@ -49,7 +53,8 @@ import {MatInputModule} from '@angular/material/input';
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

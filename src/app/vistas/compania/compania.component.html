@@ -16,12 +16,12 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Agregar Compañia</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Opcion 2</button>
+                            
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div *ngIf="listaCompanias.length>0">
+                
+                    <div *ngIf="listaCompanias.length>0" class="example-container mat-elevation-z8">
 
                         <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Buscar Compania</mat-label>
@@ -44,7 +44,7 @@
                                 </ng-container>
                               
                                 <!-- nombrecoordinador Column -->
-                                <ng-container matColumnDef="nombrecoordinador">
+                                <ng-container matColumnDef="nombrecoordinador" id="coordinador">
                                   <th mat-header-cell *matHeaderCellDef> Coordinador </th>
                                   <td mat-cell *matCellDef="let element"> {{element.nombrecoordinador}} </td>
                                 </ng-container>
@@ -80,16 +80,16 @@
                                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                               </table>
-                              <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                                                showFirstLastButtons 
-                                                aria-label="Mostrar">
-                                </mat-paginator>
+                              <div class="container-fluid">
+                                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                              </div>
+                              
                           </div>
 
                     </div>
                     <h2 *ngIf="listaCompanias.length==0">No hay Compañias para mostrar</h2>
                     
-                </div>
+                
 
             </main>
 

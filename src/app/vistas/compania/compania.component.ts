@@ -23,6 +23,11 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  ngAfterViewInit() {
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
+  }
+
   constructor(private _companiaService : CompaniaService) { }
 
   ngOnInit(): void {
@@ -38,12 +43,7 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
     this._companiaService.getAllCompanias().subscribe(data=>{
       this.listaCompanias = data;
       this.dataSource = new MatTableDataSource(this.listaCompanias);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
     })
-  }
-  ngAfterViewInit() {
-    
   }
 
 }
