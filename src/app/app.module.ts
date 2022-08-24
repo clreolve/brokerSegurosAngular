@@ -19,6 +19,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { AgenteComponent } from './vistas/agente/agente.component';
+import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-compania.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AgenteComponent } from './vistas/agente/agente.component';
     SidebarmenuComponent,
     ClienteComponent,
     PlanComponent,
-    AgenteComponent
+    AgenteComponent,
+    AgregarCompaniaComponent
   ],
   imports: [
     BrowserModule,
