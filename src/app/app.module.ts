@@ -22,6 +22,8 @@ import { AgenteComponent } from './vistas/agente/agente.component';
 import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-compania.component';
 import { AgregarClienteComponent } from './vistas/agregar-cliente/agregar-cliente.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatSortModule,
     MatIconModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     HttpClientModule,
@@ -58,7 +62,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatSortModule,
     MatIconModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

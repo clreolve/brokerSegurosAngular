@@ -1,4 +1,4 @@
-export interface Compania{
+export interface ICompania{
     idcompania: number,
     nombrecompania: string,
     ruc: string,

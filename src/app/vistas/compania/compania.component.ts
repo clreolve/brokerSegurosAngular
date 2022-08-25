@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Compania } from 'src/app/interfaces/compania';
+import { ICompania } from 'src/app/interfaces/compania';
 import { CompaniaService } from 'src/app/servicios/compania.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { CompaniaService } from 'src/app/servicios/compania.service';
 })
 export class CompaniaComponent implements OnInit, AfterViewInit {
 
-  listaCompanias: Compania[] = [];
+  listaCompanias: ICompania[] = [];
 
   displayedColumns: string[] = ['nombrecompania', 'ruc', 'nombrecoordinador', 'celular','correo','acciones'];
 

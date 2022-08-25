@@ -28,16 +28,17 @@
                                 <p class="card-category">Complete los datos requeridos</p>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
                                     <div class="row">
                                         <div class="col-md-5">
                                           <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Nombre Compañía">
+                                              <input matInput placeholder="Nombre Compañía" type="text" 
+                                              formControlName="nombrecompania">
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-3">
                                             <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Ruc">
+                                              <input matInput placeholder="Ruc" type="text" formControlName="ruc">
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-4">
@@ -47,7 +48,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                           <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Nombre Coordinador" type="text">
+                                            <input matInput placeholder="Nombre Coordinador" type="text" formControlName="nombrecoordinador">
                                           </mat-form-field>
                                         </div>
                                         
@@ -55,19 +56,24 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                           <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Correo electrónico del coordinador" type="text">
+                                            <input matInput placeholder="Correo electrónico del coordinador" type="text" formControlName="correo">
                                           </mat-form-field>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                           <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Número celular coordinador" type="text">
+                                            <input matInput placeholder="Número celular coordinador" type="text" formControlName="celular">
                                           </mat-form-field>
                                         </div>
                                     </div>
                                     
-                                    <button mat-raised-button type="submit" class="btn btn-light pull-right mat-elevation-z8">Guardar</button>
+                                        <button mat-raised-button type="submit" [disabled]="registerForm.invalid"
+                                    class="btn btn-light pull-right mat-elevation-z8">Guardar</button>
+                                        <button mat-raised-button type="reset" (click)="onReset()"
+                                    class="btn btn-light pull-right mat-elevation-z8">Limpiar</button>
+                                    
+                                    
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
