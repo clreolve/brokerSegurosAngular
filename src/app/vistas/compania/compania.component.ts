@@ -46,4 +46,8 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
     })
   }
 
+  desactivarCompania(i:number){
+
+  }
+
 }

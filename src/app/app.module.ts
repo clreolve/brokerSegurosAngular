@@ -20,6 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { AgenteComponent } from './vistas/agente/agente.component';
 import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-compania.component';
+import { AgregarClienteComponent } from './vistas/agregar-cliente/agregar-cliente.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-comp
     ClienteComponent,
     PlanComponent,
     AgenteComponent,
-    AgregarCompaniaComponent
+    AgregarCompaniaComponent,
+    AgregarClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-comp
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   exports:[
     HttpClientModule,
@@ -53,7 +57,8 @@ import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-comp
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

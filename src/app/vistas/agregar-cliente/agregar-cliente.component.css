@@ -41,6 +41,12 @@
     background: #424242;
 }
 
+.nav-link{
+    background: #424242;
+    color: white;
+    
+}
+
 h4 {
     display: block;
     margin-block-start: 1.33em;
@@ -85,10 +91,18 @@ h4 {
     border-radius: 0.2rem;
     outline: 0;
     will-change: box-shadow,transform;
+    background: #6c757d;
+    color: white;
 }
 
-.btn-light:hover{
+.btn-light:hover, .nav-link:hover{
     background: #43A047;
+  }
+
+  @media (max-width: 768px){
+    .btn-light:hover, .nav-link:hover{
+        background: #ccd3cc;
+      }
   }
 
 .clearfix::after {

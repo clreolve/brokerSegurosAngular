@@ -1,6 +1,7 @@
 table {
     width: 100%;
     margin-top: 5px;
+    overflow-x:auto
   }
 
 .mat-form-field {
@@ -14,6 +15,10 @@ table {
 
 h2{
     color: white;
+}
+
+.pointer{
+  margin-right: 0.2em;
 }
 
   
