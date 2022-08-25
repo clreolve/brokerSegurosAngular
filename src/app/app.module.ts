@@ -27,6 +27,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SitioEnConstruccionComponent } from './vistas/componentes/sitio-en-construccion/sitio-en-construccion.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actualizar-compania.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogoConfirmacionComponent } from './vistas/componentes/dialogo-confirmacion/dialogo-confirmacion.component';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 
 @NgModule({
@@ -44,7 +49,8 @@ import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actual
     AgregarClienteComponent,
     SitioEnConstruccionComponent,
     DashboardComponent,
-    ActualizarCompaniaComponent
+    ActualizarCompaniaComponent,
+    DialogoConfirmacionComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,9 @@ import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actual
     MatTooltipModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   exports:[
     HttpClientModule,
@@ -73,9 +81,14 @@ import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actual
     MatTooltipModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogoConfirmacionComponent
+  ]
 })
 export class AppModule { }
