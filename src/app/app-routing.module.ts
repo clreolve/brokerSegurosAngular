@@ -8,6 +8,8 @@ import { PlanComponent } from './vistas/plan/plan.component';
 import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-compania.component';
 import { AgenteComponent } from './vistas/agente/agente.component';
 import { AgregarClienteComponent } from './vistas/agregar-cliente/agregar-cliente.component';
+import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actualizar-compania.component';
 
 
 const routes: Routes = [
@@ -17,8 +19,10 @@ const routes: Routes = [
   {path: "cliente", component: ClienteComponent},
   {path: "plan", component: PlanComponent},
   {path: "agente", component: AgenteComponent},
+  {path: "dashboard", component: DashboardComponent},
   {path: "datos_compania", component: AgregarCompaniaComponent},
   {path: "datos_cliente", component: AgregarClienteComponent},
+  {path: "datos_compania/:nombre/:ruc/:coordinador/:correo/:celular/:id", component: ActualizarCompaniaComponent},
   {path: "**", redirectTo:"login"}
 ];
 

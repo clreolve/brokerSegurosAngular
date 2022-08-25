@@ -30,6 +30,16 @@ export class CompaniaService {
     
   }
   actualizarCompania(compania:any){
-    //pendiente
+    var body = {
+      "nombrecompania": `${compania.nombrecompania}`,
+      "ruc": `${compania.ruc}`,
+      "nombrecoordinador": `${compania.nombrecoordinador}`,
+      "celular": `${compania.celular}`,
+      "correo": `${compania.correo}`
+    }
+
+    //alert(compania.celular);
+
+    return this.http.put<any>(`https://medicalbrokers.pythonanywhere.com/web/compania/${compania.idcompania}/`,body);
   }
 }

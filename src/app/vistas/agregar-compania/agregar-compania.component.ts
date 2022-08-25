@@ -41,7 +41,6 @@ export class AgregarCompaniaComponent implements OnInit {
       return;
     }
 
-    //this._companiaService.guardarCompania(JSON.stringify(this.registerForm.value,null,1))
     this._companiaService.guardarCompania(this.registerForm.value)
     .subscribe(response=>{
       this.registerForm.reset();

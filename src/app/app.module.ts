@@ -24,6 +24,9 @@ import { AgregarClienteComponent } from './vistas/agregar-cliente/agregar-client
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SitioEnConstruccionComponent } from './vistas/componentes/sitio-en-construccion/sitio-en-construccion.component';
+import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actualizar-compania.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     PlanComponent,
     AgenteComponent,
     AgregarCompaniaComponent,
-    AgregarClienteComponent
+    AgregarClienteComponent,
+    SitioEnConstruccionComponent,
+    DashboardComponent,
+    ActualizarCompaniaComponent
   ],
   imports: [
     BrowserModule,
