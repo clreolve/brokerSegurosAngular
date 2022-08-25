@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CompaniaService } from 'src/app/servicios/compania.service';
 
@@ -13,7 +14,7 @@ export class AgregarCompaniaComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router:Router, private _companiaService: CompaniaService) { 
+  constructor(private formBuilder: FormBuilder, private router:Router, private _companiaService: CompaniaService,private _snackBar: MatSnackBar) { 
     this.registerForm = this.formBuilder.group(
       {
         nombrecompania: ["",Validators.required],
@@ -40,13 +41,28 @@ export class AgregarCompaniaComponent implements OnInit {
       return;
     }
 
-    this._companiaService.guardarCompania(JSON.stringify(this.registerForm.value,null,4))
+    //this._companiaService.guardarCompania(JSON.stringify(this.registerForm.value,null,1))
+    this._companiaService.guardarCompania(this.registerForm.value)
+    .subscribe(response=>{
+      this.registerForm.reset();
+      this.mensaje();
+
+    })
+    
 
   }
 
   onReset(){
     this.submitted = false;
     this.registerForm.reset();
+  }
+
+  mensaje(){
+    this._snackBar.open('Compañia guardada correctamente','',{
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
   }
 
 }

@@ -23,6 +23,7 @@ import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-comp
 import { AgregarClienteComponent } from './vistas/agregar-cliente/agregar-cliente.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatTooltipModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   exports:[
     HttpClientModule,
@@ -64,7 +66,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatTooltipModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
