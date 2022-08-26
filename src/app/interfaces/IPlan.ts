@@ -1,10 +1,14 @@
 export interface IPlan{
     idPlan: number,
+    idCompania: number,
     tipoDePlan: string,
     tipoDeSeguro: string,
     nombrePlan: string,
-    limite: string,
+    tieneLimite: string,
     cobertura: string,
     is_active: number,
-    idCompania: number
+    fecha_creado:Date,
+    fecha_modificado:Date,
+    creado_por_usuario:string,
+    modificado_por_usuario:string
 }

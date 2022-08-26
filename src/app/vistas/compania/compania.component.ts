@@ -24,9 +24,7 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
   dataTable!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  //@ViewChild(MatPaginator) paginator:any = MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  //@ViewChild(MatSort) sort:any = MatSort;
 
   constructor(private _companiaService : CompaniaService,public dialogo: MatDialog,private _snackBar: MatSnackBar, private cdr: ChangeDetectorRef) {
   }

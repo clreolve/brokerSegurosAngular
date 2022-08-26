@@ -14,7 +14,7 @@ export class CompaniaService {
   getAllCompanias():Observable<any>{
     return this.http.get<any>('https://medicalbrokers.pythonanywhere.com/web/compania/');
   }
-  getbyCompaniaId(idCompania:number):Observable<any>{
+  obtenerCompaniaPorId(idCompania:number):Observable<any>{
     return this.http.get<any>(`https://medicalbrokers.pythonanywhere.com/web/compania/${idCompania}/`);
   }
   guardarCompania(compania:any){
