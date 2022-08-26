@@ -30,6 +30,7 @@ import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actual
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogoConfirmacionComponent } from './vistas/componentes/dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 
 
@@ -68,7 +69,8 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableExporterModule
   ],
   exports:[
     HttpClientModule,
@@ -83,7 +85,8 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableExporterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

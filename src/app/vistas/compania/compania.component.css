@@ -36,3 +36,11 @@ h2{
 a{
   cursor: pointer;
 }
+
+.table_footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: space-around;
+}

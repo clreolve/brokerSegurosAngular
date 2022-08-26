@@ -29,7 +29,7 @@
                           </mat-form-field>
 
                           <div class="mat-elevation-z8">
-                            <table mat-table [dataSource]="dataSource" matSort matSortActive="created">
+                            <table mat-table [dataSource]="dataSource" matSort matSortActive="created" matTableExporter  #exporter="matTableExporter">
 
                                 <!-- nombrecompania Column -->
                                 <ng-container matColumnDef="nombrecompania">
@@ -79,7 +79,8 @@
                                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                               </table>
-                              <div class="container-fluid">
+                              <div class="table_footer">
+                                <a class="pointer" matTooltip="Descargar Archivo" (click)="exporter.exportTable('xlsx', {fileName:'Companias'})"><mat-icon>download</mat-icon></a>
                                 <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
                               </div>
                               
