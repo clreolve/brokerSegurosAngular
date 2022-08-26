@@ -146,3 +146,8 @@ h4 {
 input{
     color: white;
 }
+
+.error{
+    color: rgb(221, 221, 152);
+    font-size: smaller;
+}

@@ -29,7 +29,7 @@
                           </mat-form-field>
 
                           <div class="mat-elevation-z8">
-                            <table mat-table [dataSource]="dataSource" matSort>
+                            <table mat-table [dataSource]="dataSource" matSort matSortActive="created">
 
                                 <!-- nombrecompania Column -->
                                 <ng-container matColumnDef="nombrecompania">
@@ -80,7 +80,7 @@
                                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                               </table>
                               <div class="container-fluid">
-                                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                                <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
                               </div>
                               
                           </div>

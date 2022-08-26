@@ -31,9 +31,9 @@ export class ActualizarCompaniaComponent implements OnInit {
       {
         idCompania: [0],
         nombreCompania: ["",Validators.required],
-        ruc: ["",Validators.required],
+        ruc: ["",[Validators.required,Validators.pattern('^[0-9]{13}$')]],
         nombreCoordinador: ["",Validators.required],
-        celular: ["",[Validators.required,Validators.minLength(10)]],
+        celular: ["",[Validators.required,Validators.minLength(10),Validators.pattern('^[0-9]{10}$')]],
         correo: ["",[Validators.required,Validators.email]]
     }
     );

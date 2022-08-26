@@ -18,9 +18,9 @@ export class AgregarCompaniaComponent implements OnInit {
     this.registerForm = this.formBuilder.group(
       {
         nombreCompania: ["",Validators.required],
-        ruc: ["",Validators.required],
+        ruc: ["",[Validators.required,Validators.minLength(10),Validators.maxLength(13),Validators.pattern('^[0-9]{13}$')]],
         nombreCoordinador: ["",Validators.required],
-        celular: ["",[Validators.required,Validators.minLength(10)]],
+        celular: ["",[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern('^[0-9]{10}$')]],
         correo: ["",[Validators.required,Validators.email]]
     }
     );

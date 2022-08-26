@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatSort } from '@angular/material/sort';
+import { MatSort,SortDirection } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ICompania } from 'src/app/interfaces/compania';
 import { CompaniaService } from 'src/app/servicios/compania.service';
@@ -19,19 +19,17 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['nombrecompania', 'ruc', 'nombrecoordinador', 'celular','correo','acciones'];
 
-  dataSource! : MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<any>;
 
-  dataTable! : MatTableDataSource<any>;
+  dataTable!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  //@ViewChild(MatPaginator) paginator:any = MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  //@ViewChild(MatSort) sort:any = MatSort;
 
-  ngAfterViewInit() {
-    //this.dataSource.paginator = this.paginator;
-    //this.dataSource.sort = this.sort;
+  constructor(private _companiaService : CompaniaService,public dialogo: MatDialog,private _snackBar: MatSnackBar, private cdr: ChangeDetectorRef) {
   }
-
-  constructor(private _companiaService : CompaniaService,public dialogo: MatDialog,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.cargarCompanias();
@@ -46,7 +44,14 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
     this._companiaService.getAllCompanias().subscribe(data=>{
       this.listaCompanias = data;
       this.dataSource = new MatTableDataSource(this.listaCompanias);
+      this.cdr.detectChanges();
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
+  }
+
+  ngAfterViewInit() {
+    //TODO
   }
 
   mostrarDialogo(id:string): void {
