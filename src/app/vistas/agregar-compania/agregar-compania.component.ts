@@ -42,11 +42,15 @@ export class AgregarCompaniaComponent implements OnInit {
     }
 
     this._companiaService.guardarCompania(this.registerForm.value)
-    .subscribe(response=>{
+    .subscribe(
+      response=>{
       this.registerForm.reset();
-      
-      this.mensaje();
-    })
+      this.mensajeOk('Compañia guardada correctamente');
+      },
+      error =>{
+        this.mensajeError(error.error.ruc);
+      } 
+    )
     
 
   }
@@ -56,9 +60,17 @@ export class AgregarCompaniaComponent implements OnInit {
     this.registerForm.reset();
   }
 
-  mensaje(){
+  mensajeOk(texto:string){
     this.router.navigate(['compania']);
-    this._snackBar.open('Compañia guardada correctamente','',{
+    this._snackBar.open(texto,'',{
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
+  }
+
+  mensajeError(texto:string){
+    this._snackBar.open(texto,'',{
       duration: 5000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'

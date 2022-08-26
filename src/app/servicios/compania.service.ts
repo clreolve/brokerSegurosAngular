@@ -26,6 +26,7 @@ export class CompaniaService {
       "correo": `${compania.correo}`,
       "is_active": 1
     }
+    
     return this.http.post<any>('https://medicalbrokers.pythonanywhere.com/web/compania/',body);
     
     
