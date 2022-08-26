@@ -13,12 +13,13 @@ import { ICompania } from 'src/app/interfaces/compania';
 export class ActualizarCompaniaComponent implements OnInit {
 
   companiaDatos: ICompania = {
-    idcompania: 0,
-    nombrecompania: "",
+    idCompania: 0,
+    nombreCompania: "",
     ruc: "",
-    nombrecoordinador: "",
+    nombreCoordinador: "",
     celular: "",
-    correo: ""
+    correo: "",
+    is_active: 1
   };
 
   registerForm: FormGroup;
@@ -28,10 +29,10 @@ export class ActualizarCompaniaComponent implements OnInit {
 
     this.registerForm = this.formBuilder.group(
       {
-        idcompania: [0],
-        nombrecompania: ["",Validators.required],
+        idCompania: [0],
+        nombreCompania: ["",Validators.required],
         ruc: ["",Validators.required],
-        nombrecoordinador: ["",Validators.required],
+        nombreCoordinador: ["",Validators.required],
         celular: ["",[Validators.required,Validators.minLength(10)]],
         correo: ["",[Validators.required,Validators.email]]
     }
@@ -42,12 +43,12 @@ export class ActualizarCompaniaComponent implements OnInit {
   ngOnInit(): void {
     this.rutaActiva.params.subscribe(
       (params: Params)=>{
-        this.companiaDatos.nombrecompania = params['nombre'];
+        this.companiaDatos.nombreCompania = params['nombre'];
         this.companiaDatos.celular = params['celular'];
         this.companiaDatos.correo = params['correo'];
         this.companiaDatos.ruc = params['ruc'];
-        this.companiaDatos.nombrecoordinador = params['coordinador'];
-        this.companiaDatos.idcompania = params['id'];
+        this.companiaDatos.nombreCoordinador = params['coordinador'];
+        this.companiaDatos.idCompania = params['id'];
       }
     );
   }

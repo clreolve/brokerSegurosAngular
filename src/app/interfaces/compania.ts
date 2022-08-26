@@ -1,8 +1,9 @@
 export interface ICompania{
-    idcompania: number,
-    nombrecompania: string,
+    idCompania: number,
+    nombreCompania: string,
     ruc: string,
-    nombrecoordinador: string,
+    nombreCoordinador: string,
     celular: string,
-    correo: string
+    correo: string,
+    is_active: number
 }
