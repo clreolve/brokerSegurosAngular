@@ -40,6 +40,7 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
 
   cargarCompanias(){
     this._companiaService.getAllCompanias().subscribe(data=>{
+      //console.log(data);
       this.listaCompanias = data;
       this.dataSource = new MatTableDataSource(this.listaCompanias);
       this.cdr.detectChanges();

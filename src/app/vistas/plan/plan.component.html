@@ -21,7 +21,68 @@
                     </div>
                 </div>
                 <div>
-                    <app-sitio-en-construccion></app-sitio-en-construccion>
+                    <div *ngIf="listaPlanes.length>0" class="example-container mat-elevation-z8">
+                        <!--Filtro para buscar planes-->
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Buscar Plan</mat-label>
+                            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar Plan">
+                          </mat-form-field>
+                          
+                          <div class="mat-elevation-z8">
+
+                            <table mat-table [dataSource]="dataSource" matSort matSortActive="created" matTableExporter  #exporter="matTableExporter" [hiddenColumns]="[5]">
+
+                                <!-- nombrePlan Column -->
+                                <ng-container matColumnDef="nombrePlan">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Plan </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.nombrePlan}} </td>
+                                </ng-container>
+                                <!-- Compania Column -->
+                                <ng-container matColumnDef="Compania">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Compañia </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.companias.nombreCompania}} </td>
+                                </ng-container>
+                                 <!-- tipoDePlan Column -->
+                                 <ng-container matColumnDef="tipoDePlan">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header id="thtpPlan"> Tipo </th>
+                                    <td mat-cell *matCellDef="let element" id="tdtpPlan"> {{element.tipoDePlan}} </td>
+                                </ng-container>
+                                <!-- numeroDeducibles Column -->
+                                <ng-container matColumnDef="numeroDeducibles">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header id="thdeducible"> Deducibles </th>
+                                    <td mat-cell *matCellDef="let element" id="tddeducible"> {{element.deducible.length}} </td>
+                                </ng-container>
+                                <!-- cobertura Column -->
+                                <ng-container matColumnDef="cobertura">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Cobertura </th>
+                                    <td mat-cell *matCellDef="let element">$ {{element.cobertura}} </td>
+                                </ng-container>
+                                <!-- acciones Column -->
+                                <ng-container matColumnDef="acciones">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <a class="pointer" matTooltip="Editar" 
+                                    >
+                                      <mat-icon>create</mat-icon></a>
+                                    
+                                   <a class="pointer" (click)="mostrarDialogo(element.idPlan)">
+                                        <mat-icon>delete_sweep</mat-icon>
+                                    </a>
+                                    </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                            </table>
+                            <div class="table_footer">
+                                <a class="pointer" matTooltip="Descargar Archivo" (click)="exporter.exportTable('xlsx', {fileName:'Planes',sheet:'lista planes'})"><mat-icon>download</mat-icon></a>
+                                <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+                              </div>
+
+                          </div>
+
+                    </div>
+                    <h2 *ngIf="listaPlanes.length==0">No hay planes para mostrar</h2>
                 </div>
 
             </main>

@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    margin-top: 5px;
+    overflow-x:auto
+  }
+
+.mat-form-field {
+    width: 100%; 
+    color: white;
+  }
+
+.ng-star-inserted{
+    background: #424242;
+}
+
+h2{
+    color: white;
+}
+
+.pointer{
+  margin-right: 0.2em;
+}
+
+@media (max-width: 768px){
+#thtpPlan, #tdtpPlan{
+  display: none;
+}
+}
+
+@media (max-width: 768px){
+  #thdeducible, #tddeducible,#thcoordinador,#tdcoordinador{
+    display: none;
+  }
+}
+
+a{
+  cursor: pointer;
+}
+
+.table_footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: space-around;
+}

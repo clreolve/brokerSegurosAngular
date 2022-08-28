@@ -17,7 +17,7 @@ export class PlanComponent implements OnInit, AfterViewInit {
 
   listaPlanes: IPlan[] = [];
 
-  displayedColumns: string[] = ['nombrePlan', 'idCompania', 'tipoDePlan', 'numeroDeducibles','cobertura','acciones'];
+  displayedColumns: string[] = ['nombrePlan', 'Compania', 'tipoDePlan', 'numeroDeducibles','cobertura','acciones'];
 
   dataSource!: MatTableDataSource<any>;
 
@@ -29,6 +29,7 @@ export class PlanComponent implements OnInit, AfterViewInit {
   constructor(private _planService: PlanService,public dialogo: MatDialog,private _snackBar: MatSnackBar, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.cargarPlanes();
   }
   ngAfterViewInit() {
     //TODO
@@ -38,7 +39,13 @@ export class PlanComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   cargarPlanes(){
-    //Codigo
+    this._planService.obtenerTodosLosPlanes().subscribe(data=>{
+      this.listaPlanes = data;
+      this.dataSource = new MatTableDataSource(this.listaPlanes);
+      this.cdr.detectChanges();
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
   }
 
   mostrarDialogo(id:string): void {

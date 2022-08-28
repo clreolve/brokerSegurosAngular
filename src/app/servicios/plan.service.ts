@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PlanService {
 
-  url:string ='';
+  url:string ='https://medicalbrokers.pythonanywhere.com/web/plan/';
 
   constructor(private http:HttpClient,private router: Router) { }
 
