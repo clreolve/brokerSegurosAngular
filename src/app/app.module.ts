@@ -35,6 +35,8 @@ import { AgregarPlanComponent } from './vistas/agregar-plan/agregar-plan.compone
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { ActualizarPlanComponent } from './vistas/actualizar-plan/actualizar-plan.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -78,7 +80,9 @@ import { ActualizarPlanComponent } from './vistas/actualizar-plan/actualizar-pla
     MatButtonModule,
     MatTableExporterModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule,
+    MatListModule
   ],
   exports:[
     HttpClientModule,
@@ -96,7 +100,9 @@ import { ActualizarPlanComponent } from './vistas/actualizar-plan/actualizar-pla
     MatButtonModule,
     MatTableExporterModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -55,6 +55,8 @@ export class ActualizarPlanComponent implements OnInit {
       tieneLimite: ["",Validators.required],
       cobertura: ["",Validators.required],
       idCompania: ["",Validators.required],
+      deducible: [""],
+      tipoDeducible: [""]
   });
 
   }
