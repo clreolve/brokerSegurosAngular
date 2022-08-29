@@ -34,6 +34,7 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 import { AgregarPlanComponent } from './vistas/agregar-plan/agregar-plan.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { ActualizarPlanComponent } from './vistas/actualizar-plan/actualizar-plan.component';
 
 
 
@@ -55,7 +56,8 @@ import {MatRadioModule} from '@angular/material/radio';
     DashboardComponent,
     ActualizarCompaniaComponent,
     DialogoConfirmacionComponent,
-    AgregarPlanComponent
+    AgregarPlanComponent,
+    ActualizarPlanComponent
   ],
   imports: [
     BrowserModule,

@@ -30,15 +30,24 @@ export class PlanService {
   }
 
   obtenerPlanesPorId(id:number):Observable<any>{
-    return this.http.get<any>(this.url+"/"+id);
+    return this.http.get<any>(this.url+""+id+"/");
   }
 
   eliminarPlan(idPlan:number){
-    //codigo
+    return this.http.delete<any>(this.url+idPlan+"/");
   }
 
   actualizarPlan(plan:any){
-    //codigo
+    var body = {
+      "tipoDePlan": plan.tipoDePlan,
+      "tipoDeSeguro": plan.tipoDeSeguro,
+      "nombrePlan": plan.nombrePlan,
+      "tieneLimite": plan.tieneLimite,
+      "cobertura": plan.cobertura,
+      "is_active" : 1
+    }
+
+    return this.http.put<any>(this.url+plan.idPlan+"/",body);
   }
 
 

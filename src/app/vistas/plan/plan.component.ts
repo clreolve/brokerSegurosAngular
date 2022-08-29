@@ -48,7 +48,7 @@ export class PlanComponent implements OnInit, AfterViewInit {
     })
   }
 
-  mostrarDialogo(id:string): void {
+  mostrarDialogo(id:number): void {
     this.dialogo
       .open(DialogoConfirmacionComponent, {
         data: `¿Esta seguro de eliminar el plan?`
@@ -56,13 +56,17 @@ export class PlanComponent implements OnInit, AfterViewInit {
       .afterClosed()
       .subscribe((confirmado: Boolean) => {
         if (confirmado) {
-          //llamar funcion desactivarPlan
+          this.desactivarPlan(id);
         } 
       });
   }
 
-  desactivarPlan(id:string){
-    
+  desactivarPlan(id:number){
+    this._planService.eliminarPlan(id)
+    .subscribe(response=>{
+      this.cargarPlanes();
+      this.mensaje();
+    })
   }
 
   mensaje(){
