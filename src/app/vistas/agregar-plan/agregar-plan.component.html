@@ -1,0 +1,105 @@
+<head>
+    <title>Clientes</title>
+</head>
+<body>
+    <app-header></app-header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <app-sidebarmenu></app-sidebarmenu>
+            </div>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Agregar Nuevo Plan</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <!--<button type="button" class="btn btn-sm btn-outline-secondary">Opcion 1</button>-->
+                            <button type="button" class="btn btn-sm btn-outline-secondary mat-elevation-z8" routerLink="/plan">Atrás</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="col-md-8">
+                        <div class="card mat-elevation-z8">
+                            <div class="card-header card-header-danger mat-elevation-z8">
+                                <h4 class="card-title">Formulario para ingreso de nuevo plan</h4>
+                                <p class="card-category">Complete los datos requeridos</p>
+                            </div>
+                            <div class="card-body">
+                                <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                          <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="Nombre Plan" type="text" 
+                                              formControlName="nombrePlan">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <mat-radio-group class="example-full-weidth" formControlName="tipoDePlan">
+                                                <mat-radio-button value="Individual">Individual</mat-radio-button>
+                                                <mat-radio-button value="Coorporativo">Coorporativo</mat-radio-button>
+                                              </mat-radio-group>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Compañía</mat-label>
+                                                <mat-select formControlName="idCompania">
+                                                  <mat-option *ngFor="let companias of listaCompanias" [value]="companias.idCompania">
+                                                    {{companias.nombreCompania}}
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Tiene Límite</mat-label>
+                                                <mat-select formControlName="tieneLimite">
+                                                  <mat-option *ngFor="let limite of limites" [value]="limite.valor">
+                                                    {{limite.etiqueta}}
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <mat-form-field class="example-full-weidth">
+                                                <input matInput placeholder="Tipo de seguro" type="text" formControlName="tipoDeSeguro">
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-5">
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Cobertura" type="text" formControlName="cobertura">
+                                          </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    
+                                    
+                                        <button mat-raised-button type="submit" [disabled]="registerForm.invalid"
+                                    class="btn btn-light pull-right mat-elevation-z8">Guardar</button>
+                                        <button mat-raised-button type="reset" (click)="onReset()"
+                                    class="btn btn-light pull-right mat-elevation-z8">Limpiar</button>
+
+                                    <div class="clearfix"></div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+</body>
+
+

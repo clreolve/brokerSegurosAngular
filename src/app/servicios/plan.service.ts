@@ -16,6 +16,19 @@ export class PlanService {
     return this.http.get<any>(this.url);
   }
 
+  crearPlan(plan:any){
+    var body = {
+        "tipoDePlan": `${plan.tipoDePlan}`,
+        "tipoDeSeguro": `${plan.tipoDeSeguro}`,
+        "nombrePlan": `${plan.nombrePlan}`,
+        "tieneLimite": `${plan.tieneLimite}`,
+        "cobertura": `${plan.cobertura}`,
+        "idCompania": `${plan.idCompania}`,
+        "is_active" : 1
+    }
+    return this.http.post<any>(this.url,body);
+  }
+
   obtenerPlanesPorId(id:number):Observable<any>{
     return this.http.get<any>(this.url+"/"+id);
   }

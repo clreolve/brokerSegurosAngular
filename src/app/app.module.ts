@@ -31,6 +31,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogoConfirmacionComponent } from './vistas/componentes/dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import { AgregarPlanComponent } from './vistas/agregar-plan/agregar-plan.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -51,7 +54,8 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     SitioEnConstruccionComponent,
     DashboardComponent,
     ActualizarCompaniaComponent,
-    DialogoConfirmacionComponent
+    DialogoConfirmacionComponent,
+    AgregarPlanComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,9 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     MatSnackBarModule,
     MatDialogModule,
     MatButtonModule,
-    MatTableExporterModule
+    MatTableExporterModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   exports:[
     HttpClientModule,
@@ -86,7 +92,9 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     MatSnackBarModule,
     MatDialogModule,
     MatButtonModule,
-    MatTableExporterModule
+    MatTableExporterModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],
