@@ -45,6 +45,7 @@ export class PlanComponent implements OnInit, AfterViewInit {
       this.cdr.detectChanges();
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      console.log(this.listaPlanes)
     })
   }
 

@@ -80,9 +80,8 @@
                                         </div>
                                     </div>
                                     <mat-divider></mat-divider>
-                                    <h4>Agregar Deducible</h4>
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
                                               <input matInput placeholder="Deducible" type="text" formControlName="deducible" >
                                             </mat-form-field>
@@ -94,22 +93,25 @@
                                               </mat-radio-group>
                                             </div>
 
-                                          <div class="col-md-2">
-                                            <div class="example-full-width">
-                                                <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-                                                  <mat-icon>plus_one</mat-icon>
-                                                </button>
-                                              </div>
+                                          <div class="col-md-3">
+                                            
+                                              <button mat-mini-fab color="accent" type="button" id="btnDeducible"
+                                              (click)="crearDeducible()">
+                                                <mat-icon>plus_one</mat-icon>
+                                              </button>
                                           </div>
-                                        
-                                            <mat-list>
-                                                <mat-list-item>Deducibles por Incapacidad</mat-list-item>
-                                                
-                                                <mat-divider></mat-divider>
-                                                <mat-list-item>Deducibles por año de contrato</mat-list-item>
-                                                
-                                                <mat-divider></mat-divider>
-                                              </mat-list>
+                                          <div class="col-md-12">
+                                            <mat-list  *ngFor="let deducible of planDatos.deducibles">
+                                              <mat-list-item>${{deducible.valor}} - {{deducible.tipoDeducible}}  
+                                                <a class="pointer" matTooltip="Eliminar" (click)="eliminarDeducible(deducible.idDeducible)">
+                                                  <mat-icon>delete_sweep</mat-icon>
+                                              </a>
+                                              </mat-list-item>
+                                               
+                                              <mat-divider></mat-divider>
+                                            </mat-list>
+                                          </div>
+                                            
                                     </div>
 
                                     <input  hidden="true"  matInput  formControlName="idPlan" type="text" [ngModel]="planDatos.idPlan">

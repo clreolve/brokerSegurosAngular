@@ -160,9 +160,15 @@ input{
   .mat-list-item{
     color: white;
   }
-  .mat-divider{
-    margin: 1em 0;
-  }
+  
   h4{
     color: white;
+  }
+
+  #btnDeducible{
+    margin-top: 1em;
+  }
+
+  a{
+    margin-left: 1em;
   }

@@ -1,6 +1,6 @@
 export interface IPlan{
         idPlan: number,
-        deducible: [],
+        deducibles: [],
         companias: {
             idCompania: number,
             nombreCompania: string,
