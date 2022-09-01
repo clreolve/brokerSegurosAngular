@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ICompania } from '../interfaces/compania';
 
 @Injectable({
@@ -45,6 +45,7 @@ export class CompaniaService {
   }
 
   inactivarCompania(idcompania:any){
-    return this.http.delete<any>(`https://medicalbrokers.pythonanywhere.com/web/compania/${idcompania}/`);
+    return this.http.delete<any>(`https://medicalbrokers.pythonanywhere.com/web/compania/${idcompania}/`)
+    .pipe(catchError(err=>throwError(()=> new Error('No se puede eliminar Compañias con datos asociados'))))
   }
 }

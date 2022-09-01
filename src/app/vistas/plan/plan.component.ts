@@ -62,16 +62,21 @@ export class PlanComponent implements OnInit, AfterViewInit {
       });
   }
 
+  desactivar(){
+    this.cargarPlanes();
+  this.mensaje('Plan fue eliminado');
+  }
+
   desactivarPlan(id:number){
     this._planService.eliminarPlan(id)
-    .subscribe(response=>{
-      this.cargarPlanes();
-      this.mensaje();
+    .subscribe({
+      next: response => this.desactivar(),
+      error: e => this.mensaje(e)
     })
   }
 
-  mensaje(){
-    this._snackBar.open('Plan fue eliminado','',{
+  mensaje(texto:string){
+    this._snackBar.open(texto,'',{
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'

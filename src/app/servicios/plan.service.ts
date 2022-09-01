@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,8 @@ export class PlanService {
   }
 
   eliminarPlan(idPlan:number){
-    return this.http.delete<any>(this.url+idPlan+"/");
+    return this.http.delete<any>(this.url+idPlan+"/")
+    .pipe(catchError(err=>throwError(()=> new Error('No se puede eliminar el Plan con datos asociados'))))
   }
 
   actualizarPlan(plan:any){

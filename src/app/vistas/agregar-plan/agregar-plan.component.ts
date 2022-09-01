@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CompaniaService } from 'src/app/servicios/compania.service';
 import { PlanService } from 'src/app/servicios/plan.service';
+import { DialogoConfirmacionComponent } from '../componentes/dialogo-confirmacion/dialogo-confirmacion.component';
 
 interface limitePlan{
   valor:number,
@@ -25,9 +27,14 @@ export class AgregarPlanComponent implements OnInit {
     {valor: 0, etiqueta: "No"}
   ];
 
+  tipoSeguro: any[] = [
+    {valor: "Medico", etiqueta: "Medico"},
+    {valor:"Vehicular", etiqueta: "Vehicular"}
+  ];
+
   listaCompanias: any[] = [];
 
-  constructor(private formBuilder: FormBuilder, private router:Router, 
+  constructor(private formBuilder: FormBuilder, private router:Router,public dialogo: MatDialog,
     private _planService: PlanService,private _snackBar: MatSnackBar, private _companiaService:CompaniaService) {
 
       this.registerForm = this.formBuilder.group({
@@ -55,7 +62,18 @@ export class AgregarPlanComponent implements OnInit {
   }
 
   onSubmit(){
-    this.submitted = true;
+    this.guardarDatosPlan();
+  }
+
+  guardarDatosPlan(){
+    this.dialogo
+      .open(DialogoConfirmacionComponent, {
+        data: `Se guardara el nuevo Plan, Continuar?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (confirmado) {
+          this.submitted = true;
     //en caso que el formulario no es valido
     if(this.registerForm.invalid){
       return;
@@ -70,6 +88,8 @@ export class AgregarPlanComponent implements OnInit {
         this.mensajeError(error.error.nombrePlan);
       } 
     )
+        }
+      });
   }
 
   onReset(){

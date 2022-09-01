@@ -69,8 +69,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <mat-form-field class="example-full-weidth">
-                                                <input matInput placeholder="Tipo de seguro" type="text" formControlName="tipoDeSeguro">
+                                              <mat-form-field appearance="fill">
+                                                <mat-label>Tipo de Seguro</mat-label>
+                                                <mat-select formControlName="tipoDeSeguro">
+                                                  <mat-option *ngFor="let tipo of tipoSeguro" [value]="tipo.valor">
+                                                    {{tipo.etiqueta}}
+                                                  </mat-option>
+                                                </mat-select>
                                               </mat-form-field>
                                         </div>
                                         <div class="col-md-5">

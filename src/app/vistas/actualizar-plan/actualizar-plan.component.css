@@ -172,3 +172,7 @@ input{
   a{
     margin-left: 1em;
   }
+
+  button{
+    display: inline-block;
+  }

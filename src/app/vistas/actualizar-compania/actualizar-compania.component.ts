@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router,Params } from '@angular/router';
 import { CompaniaService } from 'src/app/servicios/compania.service';
 import { ICompania } from 'src/app/interfaces/compania';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogoConfirmacionComponent } from '../componentes/dialogo-confirmacion/dialogo-confirmacion.component';
 
 @Component({
   selector: 'app-actualizar-compania',
@@ -25,7 +27,7 @@ export class ActualizarCompaniaComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router:Router, private _companiaService: CompaniaService,private _snackBar: MatSnackBar,private rutaActiva: ActivatedRoute) { 
+  constructor(private formBuilder: FormBuilder,public dialogo: MatDialog, private router:Router, private _companiaService: CompaniaService,private _snackBar: MatSnackBar,private rutaActiva: ActivatedRoute) { 
 
     this.registerForm = this.formBuilder.group(
       {
@@ -58,18 +60,29 @@ export class ActualizarCompaniaComponent implements OnInit {
   }
 
   onSubmit(){
-    this.submitted = true;
-    //en caso que el formulario no es valido
-    if(this.registerForm.invalid){
-      return;
-    }
+    this.actualizarDatosCompañia();
 
-    this._companiaService.actualizarCompania(this.registerForm.value)
-    .subscribe(response=>{
-      this.mensaje();
+  }
 
-    })
+  actualizarDatosCompañia() {
+    this.dialogo
+      .open(DialogoConfirmacionComponent, {
+        data: `Se guardarán los cambios, Continuar?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        this.submitted = true;
+        //en caso que el formulario no es valido
+        if (this.registerForm.invalid) {
+          return;
+        }
 
+        this._companiaService.actualizarCompania(this.registerForm.value)
+          .subscribe(response => {
+            this.mensaje();
+
+          })
+      });
   }
 
   onReset(){

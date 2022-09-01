@@ -69,8 +69,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <mat-form-field class="example-full-weidth">
-                                                <input matInput placeholder="Tipo de seguro" type="text" formControlName="tipoDeSeguro" [ngModel]="planDatos.tipoDeSeguro">
+                                              <mat-form-field appearance="fill">
+                                                <mat-label>Tipo de seguro</mat-label>
+                                                <mat-select formControlName="tipoDeSeguro" [ngModel]="planDatos.tipoDeSeguro">
+                                                  <mat-option *ngFor="let tipo of tipoSeguro" [value]="tipo.valor">
+                                                    {{tipo.etiqueta}}
+                                                  </mat-option>
+                                                </mat-select>
                                               </mat-form-field>
                                         </div>
                                         <div class="col-md-5">
@@ -88,17 +93,14 @@
                                           </div>
                                           <div class="col-md-5">
                                             <mat-radio-group class="example-full-weidth" formControlName="tipoDeducible">
-                                                <mat-radio-button value="Deducible por incapacidad">Por Incapacidad</mat-radio-button>
+                                                <mat-radio-button value="Deducible por incapacidad" checked="true">Por Incapacidad</mat-radio-button>
                                                 <mat-radio-button value="Deducible por año de contrato">Por año de contrato</mat-radio-button>
                                               </mat-radio-group>
                                             </div>
 
                                           <div class="col-md-3">
-                                            
-                                              <button mat-mini-fab color="accent" type="button" id="btnDeducible"
-                                              (click)="crearDeducible()">
-                                                <mat-icon>plus_one</mat-icon>
-                                              </button>
+                                            <button mat-flat-button color="accent" type="button" (click)="crearDeducible()" id="btnDeducible">
+                                              <mat-icon>add_circle</mat-icon> Añadir Deducible</button>
                                           </div>
                                           <div class="col-md-12">
                                             <mat-list  *ngFor="let deducible of planDatos.deducibles">

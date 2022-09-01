@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CompaniaService } from 'src/app/servicios/compania.service';
+import { DialogoConfirmacionComponent } from '../componentes/dialogo-confirmacion/dialogo-confirmacion.component';
 
 @Component({
   selector: 'app-agregar-compania',
@@ -14,7 +16,7 @@ export class AgregarCompaniaComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router:Router, private _companiaService: CompaniaService,private _snackBar: MatSnackBar) { 
+  constructor(private formBuilder: FormBuilder,public dialogo: MatDialog, private router:Router, private _companiaService: CompaniaService,private _snackBar: MatSnackBar) { 
     this.registerForm = this.formBuilder.group(
       {
         nombreCompania: ["",Validators.required],
@@ -35,24 +37,35 @@ export class AgregarCompaniaComponent implements OnInit {
   }
 
   onSubmit(){
-    this.submitted = true;
-    //en caso que el formulario no es valido
-    if(this.registerForm.invalid){
-      return;
-    }
+    this.guardarDatosCompania();
+  }
 
-    this._companiaService.guardarCompania(this.registerForm.value)
-    .subscribe(
-      response=>{
-      this.registerForm.reset();
-      this.mensajeOk('Compañia guardada correctamente');
-      },
-      error =>{
-        this.mensajeError(error.error.ruc);
-      } 
-    )
-    
+  guardarDatosCompania() {
+    this.dialogo
+      .open(DialogoConfirmacionComponent, {
+        data: `Se guardará una nueva compañia, Continuar?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (confirmado) {
+          this.submitted = true;
+          //en caso que el formulario no es valido
+          if (this.registerForm.invalid) {
+            return;
+          }
 
+          this._companiaService.guardarCompania(this.registerForm.value)
+            .subscribe(
+              response => {
+                this.registerForm.reset();
+                this.mensajeOk('Compañia guardada correctamente');
+              },
+              error => {
+                this.mensajeError(error.error.ruc);
+              }
+            )
+        }
+      });
   }
 
   onReset(){

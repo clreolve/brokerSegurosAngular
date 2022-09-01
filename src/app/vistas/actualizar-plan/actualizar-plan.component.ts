@@ -61,6 +61,11 @@ export class ActualizarPlanComponent implements OnInit {
     {valor: 0, etiqueta: "No"}
   ];
 
+  tipoSeguro: any[] = [
+    {valor: "Medico", etiqueta: "Medico"},
+    {valor:"Vehicular", etiqueta: "Vehicular"}
+  ];
+
   listaCompanias: any[] = [];
 
   constructor(private _companiaService: CompaniaService,private formBuilder: FormBuilder,private _deducibleService: DeducibleService, 
@@ -105,17 +110,30 @@ export class ActualizarPlanComponent implements OnInit {
   }
 
   onSubmit(){
-    this.submitted = true;
-    //en caso que el formulario no es valido
-    if(this.registerForm.invalid){
-      return;
-    }
+    this.actualizarDatosPlan();
+  }
 
-    this._planService.actualizarPlan(this.registerForm.value)
-    .subscribe(response=>{
-      this.mensaje('Actualizado Correctamente');
-      
-    })
+  actualizarDatosPlan(){
+    this.dialogo
+      .open(DialogoConfirmacionComponent, {
+        data: `Se guardaran los cambios, Continuar?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (confirmado) {
+          this.submitted = true;
+          //en caso que el formulario no es valido
+          if (this.registerForm.invalid) {
+            return;
+          }
+
+          this._planService.actualizarPlan(this.registerForm.value)
+            .subscribe(response => {
+              this.mensaje('Actualizado Correctamente');
+
+            })
+        }
+      });
 
   }
 
@@ -135,15 +153,20 @@ export class ActualizarPlanComponent implements OnInit {
   eliminarDeducible(id:number){
     this.dialogo
       .open(DialogoConfirmacionComponent, {
-        data: `Se eliminara el deducible`
+        data: `Se eliminará el deducible, Continuar?`
       })
       .afterClosed()
       .subscribe((confirmado: Boolean) => {
         if (confirmado) {
           this._deducibleService.eliminarDeducible(id)
-          .subscribe(response=>{
-            this.cargarInformacion();
-            }
+          .subscribe(
+            response=>{
+              this.cargarInformacion();
+              this.mensaje("Deducible eliminado correctamente");
+              },
+              error =>{
+                this.mensaje(error.error);
+              }
           )
         } 
       });

@@ -66,16 +66,21 @@ export class CompaniaComponent implements OnInit, AfterViewInit {
       });
   }
 
+  afterDesactivar(){
+    this.cargarCompanias();
+      this.mensaje('Compañia fue eliminada');
+  }
+
   desactivarCompania(id:string){
     this._companiaService.inactivarCompania(id)
-    .subscribe(response=>{
-      this.cargarCompanias();
-      this.mensaje();
+    .subscribe({
+      next: response => this.afterDesactivar(),
+      error: e => this.mensaje(e)
     })
   }
 
-  mensaje(){
-    this._snackBar.open('Compañia fue eliminada','',{
+  mensaje(texto:string){
+    this._snackBar.open(texto,'',{
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'
