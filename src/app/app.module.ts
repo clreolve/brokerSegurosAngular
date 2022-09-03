@@ -3,13 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { PrincipalComponent } from './vistas/principal/principal.component';
-import { CompaniaComponent } from './vistas/compania/compania.component';
-import { HeaderComponent } from './vistas/componentes/header/header.component';
-import { SidebarmenuComponent } from './vistas/componentes/sidebarmenu/sidebarmenu.component';
-import { ClienteComponent } from './vistas/cliente/cliente.component';
-import { PlanComponent } from './vistas/plan/plan.component';
+import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,6 +12,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+import { LoginComponent } from './login/login.component';
+import { PrincipalComponent } from './vistas/principal/principal.component';
+import { CompaniaComponent } from './vistas/compania/compania.component';
+import { HeaderComponent } from './vistas/componentes/header/header.component';
+import { SidebarmenuComponent } from './vistas/componentes/sidebarmenu/sidebarmenu.component';
+import { ClienteComponent } from './vistas/cliente/cliente.component';
+import { PlanComponent } from './vistas/plan/plan.component';
 import { AgenteComponent } from './vistas/agente/agente.component';
 import { AgregarCompaniaComponent } from './vistas/agregar-compania/agregar-compania.component';
 import { AgregarClienteComponent } from './vistas/agregar-cliente/agregar-cliente.component';
@@ -37,6 +39,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import { ActualizarPlanComponent } from './vistas/actualizar-plan/actualizar-plan.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from './vistas/crm/sidebar/sidebar.component';
+import { ContactosComponent } from './vistas/crm/contactos/contactos.component';
+import { ListaContactosComponent } from './vistas/crm/componentes/lista-contactos/lista-contactos.component';
+import { NuevoClienteComponent } from './vistas/crm/componentes/nuevo-cliente/nuevo-cliente.component';
 
 
 
@@ -59,7 +65,11 @@ import {MatListModule} from '@angular/material/list';
     ActualizarCompaniaComponent,
     DialogoConfirmacionComponent,
     AgregarPlanComponent,
-    ActualizarPlanComponent
+    ActualizarPlanComponent,
+    SidebarComponent,
+    ContactosComponent,
+    ListaContactosComponent,
+    NuevoClienteComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +92,8 @@ import {MatListModule} from '@angular/material/list';
     MatSelectModule,
     MatRadioModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
   exports:[
     HttpClientModule,
@@ -104,7 +115,9 @@ import {MatListModule} from '@angular/material/list';
     MatDividerModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+    [CookieService],
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     DialogoConfirmacionComponent

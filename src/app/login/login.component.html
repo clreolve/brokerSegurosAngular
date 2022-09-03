@@ -12,9 +12,9 @@
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
       <form class="login-form">
-        <input type="text" placeholder="Usuario"/>
-        <input type="password" placeholder="Contraseña"/>
-        <button routerLink="/principal">login</button>
+        <input [(ngModel)]='username' type="text" placeholder="Usuario"/>
+        <input [(ngModel)]='password' type="password" placeholder="Contraseña"/>
+        <button (click)=login() routerLink="/principal">login</button>
         <p class="message">No registrado? <a href="#">Crear cuenta</a></p>
       </form>
     </div>

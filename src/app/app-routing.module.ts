@@ -12,6 +12,7 @@ import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { ActualizarCompaniaComponent } from './vistas/actualizar-compania/actualizar-compania.component';
 import { AgregarPlanComponent } from './vistas/agregar-plan/agregar-plan.component';
 import { ActualizarPlanComponent } from './vistas/actualizar-plan/actualizar-plan.component';
+import { ContactosComponent } from './vistas/crm/contactos/contactos.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: "datos_plan", component: AgregarPlanComponent},
   {path: "datos_compania/:nombre/:ruc/:coordinador/:correo/:celular/:id", component: ActualizarCompaniaComponent},
   {path: "datos_plan/:id",component:ActualizarPlanComponent},
+  {path: "crm",component:ContactosComponent},
   {path: "**", redirectTo:"login"}
 ];
 
