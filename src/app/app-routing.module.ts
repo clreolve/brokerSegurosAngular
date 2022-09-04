@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: "datos_plan", component: AgregarPlanComponent},
   {path: "datos_compania/:nombre/:ruc/:coordinador/:correo/:celular/:id", component: ActualizarCompaniaComponent},
   {path: "datos_plan/:id",component:ActualizarPlanComponent},
-  {path: "crm",component:ContactosComponent},
+  {path: "crm/contactos",component:ContactosComponent},
   {path: "**", redirectTo:"login"}
 ];
 

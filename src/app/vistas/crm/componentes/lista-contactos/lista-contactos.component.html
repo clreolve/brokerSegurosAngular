@@ -1,1 +1,31 @@
-<p>lista-contactos works!</p>
+<div class="sidebar-wrapper">
+    <div class="logo">
+        <h2>Clientes <a href="/nuevo-contacto"><i class="pe-7s-plus"></i></a></h2>
+    </div>
+    <ul class="nav responsive-nav">
+        <li>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Buscar</mat-label>
+                  <span matPrefix><mat-icon>search</mat-icon>&nbsp;</span>
+                  <input type="text" matInput>
+                </mat-form-field>
+            </form>
+        </li>
+        <li>
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip>Activos</mat-chip>
+                <mat-chip>Potenciales</mat-chip>
+                <mat-chip>Inactivos</mat-chip>
+            </mat-chip-list>
+        </li>
+        <mat-divider></mat-divider>
+        <div>
+            <mat-card class="card" *ngFor="let contacto of contactos">
+                {{contacto.nombre}} {{contacto.apellido}}
+              </mat-card>         
+        </div>
+              
+          
+    </ul>
+</div>

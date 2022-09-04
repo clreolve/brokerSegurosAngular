@@ -1,74 +1,57 @@
-<div class="sidebar-wrapper">
-    <div class="logo">
-        <a href="/crm/contactos" class="simple-text">
-            CRM
-        </a>
-    </div>
-    <ul class="nav responsive-nav">
-        <li *ngIf="isMobileMenu()">
-            <a class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-dashboard"></i>
-				<p class="hidden-lg hidden-md">Dashboard</p>
-            </a>
-        </li>
-        <li class="dropdown" *ngIf="isMobileMenu()">
-              <a class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-globe"></i>
-                    <b class="caret hidden-sm hidden-xs"></b>
-                    <span class="notification hidden-sm hidden-xs">5</span>
-					<p class="hidden-lg hidden-md">
-						5 Notifications
-						<b class="caret"></b>
-					</p>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Notification 1</a></li>
-                <li><a href="#">Notification 2</a></li>
-                <li><a href="#">Notification 3</a></li>
-                <li><a href="#">Notification 4</a></li>
-                <li><a href="#">Another notification</a></li>
-              </ul>
-        </li>
-        <li *ngIf="isMobileMenu()">
-           <a>
-                <i class="fa fa-search"></i>
-				<p class="hidden-lg hidden-md">Search</p>
-            </a>
-        </li>
-        <li *ngIf="isMobileMenu()">
-           <a href="">
-               <p>Account</p>
-            </a>
-        </li>
-        <li class="dropdown" *ngIf="isMobileMenu()">
-              <a class="dropdown-toggle" data-toggle="dropdown">
-                    <p>
-    					Dropdown
-    					<b class="caret"></b>
-    				</p>
+<nav>
+    <div class="position-sticky pt-3">
+        <ul class="nav flex-column d-grid gap-2 mx-auto">
+            <li class="nav-item">
+                <div class="logo">
+                    <a href="/principal" class="simple-text">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </a>
+                    <a href="/crm/contactos" class="simple-text">
+                        CRM
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="card">
+                    <img src="../../../assets/images/profile.png" class="card-img-top" alt="foto usuario"
+                        id="foto_user">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Administrador</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary mat-elevation-z8" routerLink="/crm/contactos">
+                    <span data-feather="file"></span>
+                    Contactos
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="btn btn-secondary mat-elevation-z8" routerLink="/crm/dashboard">
+                    <span data-feather="layers"></span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="btn btn-secondary mat-elevation-z8" routerLink="/crm/marketing">
+                    <span data-feather="layers"></span>
+                    Marketing
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="btn btn-secondary mat-elevation-z8">
+                    <span data-feather="layers"></span>
+                    Notificaciones
+                </a>
+            </li>
+            
+            <li class="nav-item ">
+                <a class="btn btn-secondary mat-elevation-z8">
+                    <span data-feather="layers"></span>
+                    Configuraciones
+                </a>
+            </li>
+        </ul>
 
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-        </li>
-        <li *ngIf="isMobileMenu()">
-            <a>
-                <p>Log out</p>
-            </a>
-        </li>
-        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
-            <a  [routerLink]="[menuItem.path]">
-                <i class="{{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>
-    </ul>
-</div>
+    </div>
+</nav>

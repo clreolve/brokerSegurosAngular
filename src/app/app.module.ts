@@ -13,6 +13,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './vistas/principal/principal.component';
 import { CompaniaComponent } from './vistas/compania/compania.component';
@@ -93,7 +94,8 @@ import { NuevoClienteComponent } from './vistas/crm/componentes/nuevo-cliente/nu
     MatRadioModule,
     MatDividerModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCardModule
   ],
   exports:[
     HttpClientModule,
